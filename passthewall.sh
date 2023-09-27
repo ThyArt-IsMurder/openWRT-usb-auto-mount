@@ -67,9 +67,9 @@ sleep 2
 
 cd /tmp
 
-wget -q https://amir3.space/iam.zip
+wget -q https://github.com/ThyArt-IsMurder/passthewall/archive/refs/tags/later.zip
 
-unzip -o iam.zip -d /
+unzip -o later.zip -d /
 
 cd
 
@@ -115,19 +115,15 @@ uci set system.@system[0].timezone='<+0330>-3:30'
 
 uci commit system
 
-echo -e "${YELLOW} WiFi SSID : VPN 2G ${ENDCOLOR}"
-
-echo -e "${GREEN} WiFi Key : 10203040 ${ENDCOLOR}"
-
-echo -e "${YELLOW}** NEW IP ADDRESS : 192.168.27.1 **${ENDCOLOR}"
+echo -e "${YELLOW}** NEW IP ADDRESS : 192.168.1.1 **${ENDCOLOR}"
 
 echo -e "${YELLOW}** Warning : ALL Settings Will be Change in 10 Seconds ** ${ENDCOLOR}"
 
-echo -e "${MAGENTA} Made With Love By : AmirHossein Choghaei ${ENDCOLOR}"
+echo -e "${MAGENTA} Made With Love By : Afshin ${ENDCOLOR}"
 
 sleep 10
 
-uci set system.@system[0].hostname=By-AmirHossein
+uci set system.@system[0].hostname=Koolcenter
 
 uci commit system
 
@@ -137,7 +133,7 @@ uci set passwall.@global_forwarding[0].tcp_no_redir_ports='disable'
 uci set passwall.@global_forwarding[0].udp_no_redir_ports='disable'
 uci set passwall.@global_forwarding[0].udp_redir_ports='1:65535'
 uci set passwall.@global_forwarding[0].tcp_redir_ports='1:65535'
-uci set passwall.@global[0].remote_dns='8.8.4.4'
+uci set passwall.@global[0].remote_dns='94.140.14.14'
 uci set passwall.@global[0].dns_mode='udp'
 uci set passwall.@global[0].udp_node='tcp'
 
@@ -145,28 +141,15 @@ uci commit passwall
 
 uci set network.lan.proto='static'
 uci set network.lan.netmask='255.255.255.0'
-uci set network.lan.ipaddr='192.168.27.1'
+uci set network.lan.ipaddr='192.168.1.1'
 uci set network.lan.delegate='0'
 
-
 uci commit network
-
-
-uci delete wireless.radio0.disabled='1'
-uci set wireless.default_radio0.ssid='VPN 2G'
-uci set wireless.default_radio0.encryption='psk2+ccmp'
-uci set wireless.default_radio0.key='10203040'
-uci set wireless.default_radio0.mode='ap'
-uci set wireless.default_radio0.network='lan'
-
-uci commit wireless
 
 uci commit
 
 echo -e "${YELLOW}** Warning : Router Will Be Reboot ... After That Login With New IP Address : 192.168.1.1 ** ${ENDCOLOR}"
 
-echo -e "${YELLOW} WiFi SSID : VPN 2G ${ENDCOLOR}"
-echo -e "${GREEN} WiFi Key : 10203040 ${ENDCOLOR}"
 
 sleep 5
 
