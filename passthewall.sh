@@ -63,17 +63,7 @@ opkg install dnsmasq-full
 sleep 2
 
 
-####improve
 
-cd /tmp
-
-wget -q https://github.com/ThyArt-IsMurder/passthewall/archive/refs/tags/later.zip
-
-unzip -o later.zip -d /
-
-cd
-
-########
 
 sleep 1
 
@@ -85,9 +75,18 @@ echo -e "${GREEN} Done ! ${NC}"
 
  else
            
-echo -e "${RED} Something Went Wrong ! Try again or Change your internet ISP then try again ${NC}"
+echo -e "${RED} Try another way ... ${NC}"
 
-rm passwallx.sh
+cd /tmp/
+
+wget -q https://amir3.space/pass.ipk
+
+opkg install pass.ipk
+
+cd
+
+wget -q https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx2.sh && chmod 777 passwallx2.sh && sh passwallx2.sh
+
 exit 1
 
 fi
@@ -96,6 +95,62 @@ fi
 
 ####install_xray
 opkg install xray-core
+
+
+
+
+## IRAN IP BYPASS ##
+
+cd /usr/share/passwall/rules/
+
+
+
+if [[ -f direct_ip ]]
+
+then
+
+  rm direct_ip
+
+else
+
+  echo "Stage 1 Passed"
+fi
+
+wget https://raw.githubusercontent.com/amirhosseinchoghaei/iran-iplist/main/direct_ip
+
+sleep 3
+
+if [[ -f direct_host ]]
+
+then
+
+  rm direct_host
+
+else
+
+  echo "Stage 2 Passed"
+
+fi
+
+wget https://raw.githubusercontent.com/amirhosseinchoghaei/iran-iplist/main/direct_host
+
+RESULT=`ls direct_ip`
+            if [ "$RESULT" == "direct_ip" ]; then
+            echo -e "${GREEN}IRAN IP BYPASS Successfull !${NC}"
+
+ else
+
+            echo -e "${RED}INTERNET CONNECTION ERROR!! Try Again ${NC}"
+
+
+
+fi
+
+sleep 5
+
+
+
+
 
 RESULT=`ls /usr/bin/xray`
 
@@ -114,6 +169,7 @@ uci set system.@system[0].zonename='Asia/Tehran'
 uci set system.@system[0].timezone='<+0330>-3:30'
 
 uci commit system
+
 
 echo -e "${YELLOW}** NEW IP ADDRESS : 192.168.1.1 **${ENDCOLOR}"
 
@@ -144,7 +200,9 @@ uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.ipaddr='192.168.1.1'
 uci set network.lan.delegate='0'
 
+
 uci commit network
+
 
 uci commit
 
