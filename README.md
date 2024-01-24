@@ -1,5 +1,5 @@
 # INSTALL PASSWALL : Run this command in openwrt remote ssh
 ```
-rm -f passwallx.sh && wget https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx.sh && chmod 777 passwallx.sh && sh passwallx.sh
+rm -f passthewall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passthewall.sh && chmod 777 passthewall.sh && sh passthewall.sh
 ```
 Done !
