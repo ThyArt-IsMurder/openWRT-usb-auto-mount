@@ -40,6 +40,8 @@ sleep 3
 opkg install luci-app-passwall
 sleep 3
 opkg remove dnsmasq
+sleep 2
+opkg install dnsmasq-full
 sleep 3
 opkg install ipset
 sleep 2
@@ -59,11 +61,13 @@ opkg install iptables-mod-tproxy
 sleep 2
 opkg install kmod-ipt-nat
 sleep 2
-opkg install dnsmasq-full
+opkg install kmod-nft-socket
+sleep 2
+opkg install kmod-nft-tproxy
 sleep 2
 
 
-
+########
 
 sleep 1
 
@@ -71,33 +75,19 @@ RESULT=`ls /etc/init.d/passwall`
 
 if [ "$RESULT" == "/etc/init.d/passwall" ]; then
 
-echo -e "${GREEN} Done ! ${NC}"
+echo -e "${GREEN} Passwall Installed successfully ! ${NC}"
 
  else
            
-echo -e "${RED} Try another way ... ${NC}"
-
-cd /tmp/
-
-wget -q https://amir3.space/pass.ipk
-
-opkg install pass.ipk
-
-cd
-
-wget -q https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx2.sh && chmod 777 passwallx2.sh && sh passwallx2.sh
+echo -e "${RED} Can not Download Packages ... Check your internet Connection . ${NC}"
 
 exit 1
 
 fi
 
 
-
 ####install_xray
 opkg install xray-core
-
-
-
 
 ## IRAN IP BYPASS ##
 
@@ -170,7 +160,6 @@ uci set system.@system[0].timezone='<+0330>-3:30'
 
 uci commit system
 
-
 echo -e "${YELLOW}** NEW IP ADDRESS : 192.168.1.1 **${ENDCOLOR}"
 
 echo -e "${YELLOW}** Warning : ALL Settings Will be Change in 10 Seconds ** ${ENDCOLOR}"
@@ -204,7 +193,11 @@ uci set network.lan.delegate='0'
 uci commit network
 
 
+uci set dhcp.@dnsmasq[0].rebind_domain='www.ebanksepah.ir 
+my.irancell.ir'
+
 uci commit
+
 
 echo -e "${YELLOW}** Warning : Router Will Be Reboot ... After That Login With New IP Address : 192.168.1.1 ** ${ENDCOLOR}"
 
@@ -213,7 +206,7 @@ sleep 5
 
 reboot
 
-rm passthewall.sh
+rm passwallx.sh 2> /dev/null
 
 /sbin/reload_config
 
