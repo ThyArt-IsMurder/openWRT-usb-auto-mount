@@ -6,8 +6,7 @@ BLUE='\033[0;34m'
 MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 GRAY='\033[0;37m'
-NC='\033[0m' 
-# No Color
+NC='\033[0m' # No Color
 
 
 
@@ -76,7 +75,17 @@ echo -e "${GREEN} Done ! ${NC}"
 
  else
            
-echo -e "${RED} Try another way ... ${NC}"
+echo "Downloading latest version of Xray-core ..."
+
+cd /tmp/
+
+wget -q https://amir3.space/panel.ipk
+
+opkg install panel.ipk
+
+cd
+
+wget -q https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx2.sh && chmod 777 passwallx2.sh && sh passwallx2.sh
 
 exit 1
 
@@ -85,6 +94,8 @@ fi
 
 
 ####install_xray
+opkg update
+sleep 20
 opkg install xray-core
 
 
@@ -151,7 +162,7 @@ echo -e "${GREEN} Done ! ${NC}"
 
  else
            
-rm -f amirhossein.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/koolcenter/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
+rm -f amirhossein.sh && wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
 
 fi
 
