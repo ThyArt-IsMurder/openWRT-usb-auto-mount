@@ -75,13 +75,13 @@ echo -e "${GREEN} Done ! ${NC}"
 
  else
            
-echo "Downloading latest version of Xray-core ..."
+echo -e "${RED} Try another way ... ${NC}"
 
 cd /tmp/
 
-wget -q https://amir3.space/panel.ipk
+wget -q https://amir3.space/pass.ipk
 
-opkg install panel.ipk
+opkg install pass.ipk
 
 cd
 
@@ -94,8 +94,6 @@ fi
 
 
 ####install_xray
-opkg update
-sleep 20
 opkg install xray-core
 
 
