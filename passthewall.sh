@@ -78,16 +78,6 @@ echo -e "${GREEN} Done ! ${NC}"
            
 echo -e "${RED} Try another way ... ${NC}"
 
-cd /tmp/
-
-wget -q https://amir3.space/pass.ipk
-
-opkg install pass.ipk
-
-cd
-
-wget -q https://raw.githubusercontent.com/amirhosseinchoghaei/Passwall/main/passwallx2.sh && chmod 777 passwallx2.sh && sh passwallx2.sh
-
 exit 1
 
 fi
@@ -161,7 +151,7 @@ echo -e "${GREEN} Done ! ${NC}"
 
  else
            
-rm -f amirhossein.sh && wget https://raw.githubusercontent.com/amirhosseinchoghaei/mi4agigabit/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
+rm -f amirhossein.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/koolcenter/main/amirhossein.sh && chmod 777 amirhossein.sh && sh amirhossein.sh
 
 fi
 
