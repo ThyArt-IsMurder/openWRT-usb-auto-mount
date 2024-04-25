@@ -1,11 +1,10 @@
 # INSTALL PASSWALL : Run this command in openwrt remote ssh
 ```
-rm -f passthewall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passthewall.sh && chmod 777 passthewall.sh && sh passthewall.sh
+DISK="/dev/sda"
+parted -s ${DISK} -- mklabel gpt mkpart extroot 2048s -2048s
+DEVICE="${DISK}1"
+mkfs.ext4 -L extroot ${DEVICE}
 ```
 
-# INSTALL PASSWALL BY CHOICE : Run this command in openwrt remote ssh
-```
-rm -f passwall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passwall.sh && chmod 777 passwall.sh && sh passwall.sh
-```
 
 Done !
