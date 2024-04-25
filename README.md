@@ -1,4 +1,4 @@
-# INSTALL PASSWALL : Run this command in openwrt remote ssh
+## After Installing PASSWALL : Run this command in openwrt remote ssh
 ```
 DISK="/dev/sda"
 parted -s ${DISK} -- mklabel gpt mkpart extroot 2048s -2048s
