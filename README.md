@@ -1,15 +1,17 @@
 # After Installing PASSWALL 
-## 1. UNMOUNT THE USB DRIVE.
-### 2. Run commands below in openwrt remote ssh.
-Partition and format the USB disk.
+### 1. Plug in USB Drive to the router
+### 2. UNMOUNT THE USB DRIVE From passwall > system > mounts
+### 3. Run commands below in openwrt remote ssh.
+#
+### Partition and format the USB disk.
 ```
 DISK="/dev/sda"
 parted -s ${DISK} -- mklabel gpt mkpart extroot 2048s -2048s
 DEVICE="${DISK}1"
 mkfs.ext4 -L extroot ${DEVICE}
 ```
-#
-Configure the extroot mount entry.
+
+### Configure the extroot mount entry.
 ```
 eval $(block info ${DEVICE} | grep -o -e 'UUID="\S*"')
 ```
@@ -23,16 +25,16 @@ uci set fstab.extroot.uuid="${UUID}"
 uci set fstab.extroot.target="${MOUNT}"
 uci commit fstab
 ```
-#
-Transfer the content of the current overlay to the external drive.
+
+### Transfer the content of the current overlay to the external drive.
 ```
 mount ${DEVICE} /mnt
 ```
 ```
 tar -C ${MOUNT} -cvf - . | tar -C /mnt -xf -
 ```
-#
-Configure a mount entry for the the original overlay.
+
+### Configure a mount entry for the the original overlay.
 ```
 DEVICE="$(block info | sed -n -e '/MOUNT="\S*\/overlay"/s/:\s.*$//p')"
 ```
@@ -43,12 +45,15 @@ uci set fstab.rwm.device="${DEVICE}"
 uci set fstab.rwm.target="/rwm"
 uci commit fstab
 ```
-Done !
 
-
-Reboot the device to apply the changes.
+### Reboot the device to apply the changes.
 ```
 reboot
 ```
 
+# Done !
 
+### Run this auto command (it's the cmmands above but automatic 😊)
+```
+rm -f passthewall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passthewall.sh && chmod 777 passthewall.sh && sh passthewall.sh 
+```
