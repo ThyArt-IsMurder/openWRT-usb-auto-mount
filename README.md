@@ -52,7 +52,7 @@ reboot
 ```
 
 ### Preserving opkg lists
-Save opkg lists to /usr/lib/opkg/lists stored on the extroot, instead of in RAM. This makes package lists survive reboot and saves some RAM.
+😎Save opkg lists to /usr/lib/opkg/lists stored on the extroot, instead of in RAM. This makes package lists survive reboot and saves some RAM.
 ```
 sed -i -e "/^lists_dir\s/s:/var/opkg-lists$:/usr/lib/opkg/lists:" /etc/opkg.conf
 opkg update
