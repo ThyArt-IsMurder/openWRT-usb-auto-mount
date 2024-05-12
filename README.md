@@ -60,7 +60,7 @@ opkg update
 
 # Done !
 
-### Run this auto command (it's the cmmands above but automatic 😊)
+### Run this auto command (Cmmands above but automatic 😊)
 ```
 rm -f passthewall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passthewall.sh && chmod 777 passthewall.sh && sh passthewall.sh 
 ```
