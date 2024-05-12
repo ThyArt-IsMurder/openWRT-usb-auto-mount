@@ -51,6 +51,12 @@ uci commit fstab
 reboot
 ```
 
+### Preserving opkg lists
+```
+sed -i -e "/^lists_dir\s/s:/var/opkg-lists$:/usr/lib/opkg/lists:" /etc/opkg.conf
+opkg update
+```
+
 # Done !
 
 ### Run this auto command (it's the cmmands above but automatic 😊)
