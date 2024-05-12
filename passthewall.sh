@@ -52,6 +52,10 @@ uci set fstab.rwm.device="${ORIG}"
 uci set fstab.rwm.target="/rwm"
 uci commit fstab
 
+
+sed -i -e "/^lists_dir\s/s:/var/opkg-lists$:/usr/lib/opkg/lists:" /etc/opkg.conf
+opkg update
+
 echo -e "${GREEN}Done ! Your Router Will Be reboot After 5 Seconds ... ${NC}"
 
 echo -e "${MAGENTA} Afshin ${NC}"
