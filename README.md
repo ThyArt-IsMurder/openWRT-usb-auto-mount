@@ -69,3 +69,10 @@ opkg update
 rm -f passthewall.sh && wget https://raw.githubusercontent.com/ThyArt-IsMurder/passthewall/main/passthewall.sh && chmod 777 passthewall.sh && sh passthewall.sh 
 ```
 ![image3_2024-05-12_03-51-01](https://github.com/ThyArt-IsMurder/passthewall/assets/37227277/dcfacf6c-8944-45c8-a747-874fdd7f0fb4)
+#
+
+
+### compare packages
+```
+opkg list-installed
+```
