@@ -2,7 +2,7 @@
 ### 1. Plug in USB Drive to the router
 ![image_2024-05-12_03-41-56](https://github.com/ThyArt-IsMurder/passthewall/assets/37227277/23c71244-c7f4-4a75-a303-852fea91dac5)
 
-### 2. UNMOUNT THE USB DRIVE From passwall > system > mounts
+### 2. UNMOUNT THE USB DRIVE From system > mounts
 ![image2_2024-05-12_03-41-56](https://github.com/ThyArt-IsMurder/passthewall/assets/37227277/7d9afb7e-d6d2-482b-9f2a-1ad28acc7f24)
 
 ### 3. Run commands below in openwrt remote ssh.
