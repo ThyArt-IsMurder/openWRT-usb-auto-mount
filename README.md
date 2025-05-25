@@ -1,4 +1,4 @@
-# After Installing PASSWALL 
+# After Installing openWRT 
 ### 1. Plug in USB Drive to the router
 ![image_2024-05-12_03-41-56](https://github.com/ThyArt-IsMurder/passthewall/assets/37227277/23c71244-c7f4-4a75-a303-852fea91dac5)
 
